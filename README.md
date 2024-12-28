@@ -64,3 +64,41 @@ Bereket Kinfe
 ## License
 
 ISC
+
+## Roadmap (v2.0.0)
+
+### Planned Features
+- ⚡ Performance Improvements
+  - Faster commit message generation
+  - Parallel processing for multiple files
+  - Reduced waiting time between commits
+
+- 🎨 Enhanced UI/UX
+  - Progress bar for commit operations
+  - Status bar integration
+  - Custom notification system
+  - Preview commit messages before applying
+
+- 🛠 Advanced Configuration
+  - Custom commit message templates
+  - Branch-specific settings
+  - Ignore patterns for files/folders
+  - Custom AI prompt templates
+  - Multiple repository support
+
+- 🔍 Smart Features
+  - Commit message validation
+  - Conflict detection and resolution
+  - Smart file grouping for related changes
+  - Git hook integration
+  - Commit history analysis
+
+- 🔐 Security Features
+  - Sensitive file detection
+  - Credential leak prevention
+  - Large file warnings
+
+- 📊 Statistics & Analytics
+  - Commit history visualization
+  - Activity reports
+  - Time saved metrics
