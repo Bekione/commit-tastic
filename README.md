@@ -1,64 +1,65 @@
-# CommiTastic 🚀
+# CommitTastic
 
-CommiTastic is a Cursor extension that automates the Git commit process by leveraging Cursor's AI-powered commit message generation. It streamlines your workflow by automatically staging, generating messages, and committing changes.
+CommitTastic is a VS Code extension that automates the git commit process by generating meaningful commit messages for each changed file using Cursor AI.
 
-## Features ✨
+## Features
 
-- **Automated Commit Process**: Stage, generate messages, and commit with a single command
-- **AI-Powered Messages**: Utilizes Cursor's AI to generate meaningful commit messages
-- **Flexible Commit Modes**: 
-  - Batch mode: Commit all changes together
-  - Individual mode: Commit files separately with unique messages
-- **Auto-Push Support**: Optionally push changes automatically after committing
-- **Progress Tracking**: Visual feedback for each step of the process
+- 🔄 Automatically stages and commits changes
+- 📝 Generates AI-powered commit messages for each file
+- 🚀 Optional auto-push after commits
+- 🎯 Choose between batch commits or individual file commits
 
-## Installation 📦
+## Requirements
 
-1. Clone this repository
-2. Run `npm install`
-3. Build the extension using `npm run compile`
-4. Press F5 in VS Code to launch the Extension Development Host
+- VS Code 1.93.0 or higher
+- [Cursor Editor](https://cursor.sh/) must be installed and running
+- Git repository initialized in your workspace
 
-## Usage 🔨
+## Installation
 
-1. Open the command palette (`Cmd/Ctrl + Shift + P`)
-2. Type "Auto Commit Changes" and select the command
-3. Watch as CommiTastic processes your changes!
+1. Download the `.vsix` file from the releases
+2. Open VS Code
+3. Press `Ctrl/Cmd + Shift + P`
+4. Type "Install from VSIX" and select the downloaded file
 
-## Configuration ⚙️
+## Usage
 
-Configure CommiTastic through VS Code settings:
-json
-{
-"cursorAutoCommit.autoPush": false,
-"cursorAutoCommit.batchCommit": false,
-"cursorAutoCommit.useConventionalCommits": true
-}
+1. Make changes to your files
+2. Press `Ctrl/Cmd + Shift + P`
+3. Type "Auto Commit Changes" and press Enter
+4. The extension will:
+   - Loop through each changed file
+   - Stage the file
+   - Generate a commit message using Cursor AI
+   - Create a commit
+   - Push changes (if auto-push is enabled)
 
+## Extension Settings
 
-- `autoPush`: Automatically push after committing
-- `batchCommit`: Commit all files together instead of individually
-- `useConventionalCommits`: Use conventional commit format
+This extension contributes the following settings:
 
-## Requirements 📋
+* `cursorAutoCommit.autoPush`: Enable/disable automatic push after commits
+* `cursorAutoCommit.batchCommit`: Commit all files together instead of individually
+* `cursorAutoCommit.useConventionalCommits`: Use conventional commit format
 
-- VS Code 1.60.0 or higher
-- Cursor Editor
-- Git installed and configured
+## Known Issues
 
-## Contributing 🤝
+- Requires Cursor Editor to be running for commit message generation
+- May need to wait a few seconds for commit message generation
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+## Release Notes
 
-## License 📄
+### 0.0.1
 
-This project is licensed under the ISC License - see the LICENSE file for details.
+Initial release of CommitTastic:
+- Individual file commits with AI-generated messages
+- Batch commit option
+- Auto-push functionality
 
-## Acknowledgments 🙏
+## Author
 
-- Built for the Cursor Editor community
-- Powered by Cursor's AI commit message generation
+Bereket Kinfe
 
----
+## License
 
-Made with ❤️ for Cursor users
+ISC
