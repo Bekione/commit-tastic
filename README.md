@@ -25,9 +25,10 @@ CommitTastic is a VS Code extension that automates the git commit process by gen
 ## Usage
 
 1. Make changes to your files
-2. Press `Ctrl/Cmd + Shift + P`
-3. Type "Auto Commit Changes" and press Enter
-4. The extension will:
+2. Either:
+   - Press `Alt + G` (keyboard shortcut)
+   - Or press `Ctrl/Cmd + Shift + P` and type "Auto Commit Changes"
+3. The extension will:
    - Loop through each changed file
    - Stage the file
    - Generate a commit message using Cursor AI
