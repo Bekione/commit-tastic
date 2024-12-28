@@ -1,0 +1,68 @@
+{
+    "name": "commit-tastic",
+    "displayName": "CommitTastic",
+    "description": "Automates the commit process in Cursor editor",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.93.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "main": "./out/extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "autoCommit.execute",
+                "title": "Auto Commit Changes"
+            }
+        ],
+        "configuration": {
+            "title": "CommitTastic",
+            "properties": {
+                "cursorAutoCommit.autoPush": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Automatically push after committing"
+                },
+                "cursorAutoCommit.batchCommit": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Commit all files together instead of individually"
+                },
+                "cursorAutoCommit.useConventionalCommits": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Use conventional commit format"
+                }
+            }
+        }
+    },
+    "activationEvents": [
+        "onStartupFinished"
+    ],
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "pretest": "npm run compile && npm run lint",
+        "lint": "eslint src --ext ts"
+    },
+    "devDependencies": {
+        "@types/node": "^14.x.x",
+        "@types/vscode": "^1.93.0",
+        "@typescript-eslint/eslint-plugin": "^4.x.x",
+        "@typescript-eslint/parser": "^4.x.x",
+        "eslint": "^7.x.x",
+        "typescript": "^4.x.x"
+    },
+    "keywords": [],
+    "author": "Bereket Kinfe",
+    "license": "ISC",
+    "publisher": "bekione23",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/bekione/commit-tastic"
+    },
+    "icon": "images/icon.png"
+}
