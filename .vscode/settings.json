@@ -1,5 +1,18 @@
 {
     "cursorAutoCommit.autoPush": true,
     "cursorAutoCommit.batchCommit": false,
-    "cursorAutoCommit.useConventionalCommits": true
+    "cursorAutoCommit.useConventionalCommits": true,
+    "cursorAutoCommit.advanced": {
+        "messageTemplate": "",
+        "ignorePatterns": [],
+        "maxFileSize": 10,
+        "parallelProcessing": false,
+        "smartGrouping": false,
+        "branchSettings": {}
+    },
+    "cursorAutoCommit.ui": {
+        "showProgress": true,
+        "showStatusBar": true,
+        "previewMessages": true
+    }
 } 
