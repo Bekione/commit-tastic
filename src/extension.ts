@@ -105,15 +105,33 @@ async function pushChanges(repository: any) {
 
 async function generateCommitMessageForFile(repository: any, fileUri: vscode.Uri): Promise<string> {
     try {
-        // Stage the single file first (Cursor needs the file to be staged)
+        // Stage the single file
         await stageFile(repository, fileUri);
+        
+        // Clear any existing message
+        repository.inputBox.value = '';
         
         // Use Cursor's command
         await vscode.commands.executeCommand('cursor.generateGitCommitMessage');
         
-        return await getGeneratedMessage();
+        // Wait for message generation
+        let message = '';
+        let attempts = 0;
+        while (attempts < 10) {
+            message = repository.inputBox.value;
+            if (message && message !== 'feat: automatic commit') {
+                return message;
+            }
+            await new Promise(resolve => setTimeout(resolve, 500));
+            attempts++;
+        }
+        
+        // Fallback with more descriptive message
+        const fileName = fileUri.fsPath.split('/').pop();
+        return `update: changes in ${fileName}`;
     } catch (error) {
-        return `feat: update ${fileUri.fsPath.split('/').pop()}`;
+        const fileName = fileUri.fsPath.split('/').pop();
+        return `update: changes in ${fileName}`;
     }
 }
 
@@ -128,21 +146,56 @@ async function stageFile(repository: any, fileUri: vscode.Uri) {
 }
 
 async function getChangedFiles(repository: any): Promise<vscode.Uri[]> {
-    const changes = await repository.diffWithHEAD();
-    return changes.map((change: { uri: vscode.Uri }) => change.uri);
+    const state = repository.state;
+    const changes = [
+        ...state.workingTreeChanges,
+        ...state.indexChanges,
+        ...state.untrackedChanges
+    ];
+    return changes.map(change => change.uri);
 }
 
 export function activate(context: vscode.ExtensionContext) {
     let disposable = vscode.commands.registerCommand('autoCommit.execute', async () => {
         try {
             const repository = await getGitRepository();
-            const success = await stageAllChanges(repository);
-            
-            if (success) {
-                const message = await generateCommitMessage(repository);
-                await repository.commit(message);
-                vscode.window.showInformationMessage('Changes committed successfully!');
+            const config = vscode.workspace.getConfiguration('cursorAutoCommit');
+            const autoPush = config.get<boolean>('autoPush', false);
+            const batchCommit = config.get<boolean>('batchCommit', false);
+
+            if (batchCommit) {
+                // Original batch commit logic
+                const success = await stageAllChanges(repository);
+                if (success) {
+                    const message = await generateCommitMessage(repository);
+                    await commitChanges(repository, message);
+                }
+            } else {
+                // New individual file commit logic
+                const changedFiles = await getChangedFiles(repository);
+                
+                for (const fileUri of changedFiles) {
+                    // Stage individual file
+                    const stageSuccess = await stageFile(repository, fileUri);
+                    
+                    if (stageSuccess) {
+                        // Generate commit message for this specific file
+                        const message = await generateCommitMessageForFile(repository, fileUri);
+                        
+                        // Commit the file
+                        await commitChanges(repository, message);
+                        
+                        vscode.window.showInformationMessage(`Committed ${fileUri.fsPath}`);
+                    }
+                }
             }
+
+            // Push all commits if autoPush is enabled
+            if (autoPush) {
+                await pushChanges(repository);
+                vscode.window.showInformationMessage('Changes pushed successfully!');
+            }
+
         } catch (error) {
             vscode.window.showErrorMessage(`Error: ${error}`);
         }
