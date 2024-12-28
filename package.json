@@ -17,6 +17,14 @@
                 "title": "Auto Commit Changes"
             }
         ],
+        "keybindings": [
+            {
+                "command": "autoCommit.execute",
+                "key": "alt+g",
+                "mac": "alt+g",
+                "when": "editorTextFocus"
+            }
+        ],
         "configuration": {
             "title": "CommitTastic",
             "properties": {
