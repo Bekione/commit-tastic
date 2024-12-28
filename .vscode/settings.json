@@ -1,0 +1,5 @@
+{
+    "cursorAutoCommit.autoPush": true,
+    "cursorAutoCommit.batchCommit": false,
+    "cursorAutoCommit.useConventionalCommits": true
+} 
