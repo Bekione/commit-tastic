@@ -5,6 +5,10 @@ on:
     tags:
       - 'v*'
 
+# Add permissions block
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
