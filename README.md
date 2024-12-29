@@ -102,3 +102,23 @@ ISC
   - Commit history visualization
   - Activity reports
   - Time saved metrics
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+## Issues
+
+If you encounter any problems or have feature suggestions, please:
+1. Check if the issue already exists in our [Issues](https://github.com/bekione/commit-tastic/issues) page
+2. If not, create a new issue with:
+   - Clear description of the problem/suggestion
+   - Steps to reproduce (for bugs)
+   - Expected vs actual behavior
+   - Your environment details (VS Code version, OS, etc.)
+
+## License
+
+This project is licensed under the [MIT License](LICENSE) - see the LICENSE file for details.
