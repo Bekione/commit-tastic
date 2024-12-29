@@ -1,4 +1,4 @@
-# <img src="images/icon.png" width="36" height="36" alt="CommitTastic Icon"> CommiTastic
+# <img src="images/icon.png" width="36" height="36" alt="CommiTastic"> CommiTastic
 
 CommiTastic is a VS Code extension that automates the git commit process by generating meaningful commit messages for each changed file using Cursor AI.
 
@@ -50,12 +50,15 @@ This extension contributes the following settings:
 
 ## Release Notes
 
-### 0.0.1
+### 1.0.0 (2024-12-29)
 
-Initial release of CommitTastic:
-- Individual file commits with AI-generated messages
+Initial release of CommiTastic:
+- AI-powered commit message generation
+- Individual file commit support
 - Batch commit option
 - Auto-push functionality
+- Keyboard shortcut (Alt+G)
+- Conventional commits support
 
 ## Author
 
