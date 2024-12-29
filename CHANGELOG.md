@@ -1,11 +1,11 @@
 # Changelog
 
-All notable changes to CommitTastic will be documented in this file.
+All notable changes to CommiTastic will be documented in this file.
 
 ## [1.0.0] - 2024-12-29
 
 ### Added
-- Initial release of CommitTastic
+- Initial release of CommiTastic
 - AI-powered commit message generation
 - Individual file commit support
 - Auto-push functionality
