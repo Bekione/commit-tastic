@@ -54,7 +54,8 @@
         "compile": "tsc -p ./",
         "watch": "tsc -watch -p ./",
         "pretest": "npm run compile && npm run lint",
-        "lint": "eslint src --ext ts"
+        "lint": "eslint src --ext ts",
+        "lint:fix": "eslint src --ext ts --fix"
     },
     "devDependencies": {
         "@types/node": "^14.x.x",
@@ -62,7 +63,7 @@
         "@typescript-eslint/eslint-plugin": "^4.x.x",
         "@typescript-eslint/parser": "^4.x.x",
         "eslint": "^7.x.x",
-        "typescript": "^4.x.x"
+        "typescript": "~4.4.4"
     },
     "keywords": [],
     "author": "Bereket Kinfe",
