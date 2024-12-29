@@ -1,4 +1,4 @@
-# Contributing to CommitTastic
+# Contributing to CommiTastic
 
 First off, thanks for taking the time to contribute! 🎉
 
