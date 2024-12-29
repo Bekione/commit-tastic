@@ -1,6 +1,6 @@
 {
     "name": "commit-tastic",
-    "displayName": "CommitTastic",
+    "displayName": "CommiTastic",
     "description": "Automates the commit process in Cursor editor",
     "version": "1.0.0",
     "engines": {
@@ -26,7 +26,7 @@
             }
         ],
         "configuration": {
-            "title": "CommitTastic",
+            "title": "CommiTastic",
             "properties": {
                 "cursorAutoCommit.autoPush": {
                     "type": "boolean",
