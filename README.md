@@ -64,9 +64,6 @@ Initial release of CommiTastic:
 
 Bereket Kinfe
 
-## License
-
-ISC
 
 ## Roadmap (v2.0.0)
 
